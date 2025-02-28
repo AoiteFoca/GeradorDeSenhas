@@ -3,4 +3,4 @@
 <h1 align="center">Gerador de Senhas</h1>
 
 ## Descrição
-Aplicativo desenvolvido na disciplina de Analise, Projeto e Desenvolviemnto Ágil
+Aplicativo desenvolvido na disciplina de Analise, Projeto e Desenvolviemnto Ágil.
