@@ -14,6 +14,10 @@ Este é um **Gerador de Senhas Seguras** utilizando **Flask** e **JavaScript**.
 ```bash
 pip install -r requirements.txt
 ```
+### Execute a aplicação (_terminal_)
+```bash
+python main.py
+```
 
 ## Contribuidores
 A equipe envolvida neste projeto é constituída por alunos da 6ª Fase (20251) do curso de Engenharia de Software do Centro Universitário Católica SC de Jaraguá do Sul.
