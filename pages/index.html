@@ -2,9 +2,59 @@
 <html>
 <head>
     <title>Gerador de Senha</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .password-field {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            height: 40px;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .password-field input {
+            flex: 1;
+            border: none;
+            outline: none;
+        }
+
+        .password-field button {
+            margin-left: 10px;
+        }
+
+        .generate-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Teste</h1>
-    <p>Escrita</p>
+    <h1 style="text-align: center;">Gerador de Senha</h1>
+    <div class="password-field">
+        <input type="text" id="password" readonly>
+        <button onclick="copyPassword()">Copiar</button>
+    </div>
+    <button class="generate-button">Gerar Senha</button>
+
+    <script>
+        function copyPassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.select();
+            document.execCommand("copy");
+        }
+    </script>
 </body>
 </html>
