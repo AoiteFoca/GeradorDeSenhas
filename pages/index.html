@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
+    <meta charset="UTF-8">
     <title>Gerador de Senha</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3208/3208742.png" type="image/png">
     <style>
@@ -10,54 +11,99 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow-y: hidden;
+            overflow-x: hidden;
             background-image: url('https://content.kaspersky-labs.com/fm/press-releases/ae/aedb6f49ee66e4100d4d5f3bf7be1e6d/processed/what-is-a-password-vault-2-q75-q75.jpg');
             background-size: cover;
             background-position: center;
+            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .password-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 50px;
+            text-shadow: 3px 3px 0 #fff;
+            color: #fff;
+            text-align: center;
         }
 
         .password-field {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 300px;
-            height: 40px;
-            border: 1px solid #ccc;
+            width: 400px;
+            height: 50px;
+            border: 2px solid #ccc;
             padding: 5px;
+            border-radius: 8px;
+            background: white;
         }
 
         .password-field input {
             flex: 1;
             border: none;
             outline: none;
+            font-size: 20px;
+            padding: 5px;
         }
 
         .password-field button {
-            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
         }
 
         .generate-button {
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #007bff;
             color: #fff;
             border: none;
             cursor: pointer;
+            font-size: 20px;
+            border-radius: 20px;
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; font-size: 100px; text-shadow: 5px 5px 0 #fff;">Gerador de Senha</h1>
-    <div class="password-field">
-        <input type="text" id="password" readonly>
-        <button onclick="copyPassword()">Copiar</button>
+    <h1 style="text-align: center; font-size: 100px; text-shadow: 6px 2px 0 #000000;" >Gerador de Senha</h1>
+    <div class="password-container">
+        <div class="password-field">
+            <input type="text" id="password" readonly>
+            <button onclick="copyPassword()">Copiar</button>
+        </div>
+        <button class="generate-button" onclick="generatePassword()">Gerar Senha</button>
     </div>
-    <button class="generate-button" style="font-size: 50px; padding: 15px 30px;">Gerar Senha</button>
 
     <script>
+        function generatePassword() {
+            const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            let password = "";
+            for (let i = 0; i < 12; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            document.getElementById("password").value = password;
+        }
+
         function copyPassword() {
-            var passwordField = document.getElementById("password");
+            let passwordField = document.getElementById("password");
             passwordField.select();
             document.execCommand("copy");
+            alert("Senha copiada!");
         }
     </script>
 </body>
